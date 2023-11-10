@@ -6,7 +6,7 @@ import java.sql.Date;
 
 @Entity
 @Table(name = "empleados", schema = "miBD", catalog = "")
-public class EmpleadosEntity {
+public class EmpleadosEntityP {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "emp_no", nullable = false)
@@ -34,7 +34,7 @@ public class EmpleadosEntity {
     private Byte deptNo;
     @ManyToOne
     @JoinColumn(name = "dept_no", referencedColumnName = "dept_no", nullable = false)
-    private DepartamentosEntity departamentosByDeptNo;
+    private DepartamentosEntityP departamentosByDeptNo;
 
     public Short getEmpNo() {
         return empNo;
@@ -105,7 +105,7 @@ public class EmpleadosEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        EmpleadosEntity that = (EmpleadosEntity) o;
+        EmpleadosEntityP that = (EmpleadosEntityP) o;
 
         if (empNo != null ? !empNo.equals(that.empNo) : that.empNo != null) return false;
         if (apellido != null ? !apellido.equals(that.apellido) : that.apellido != null) return false;
@@ -132,11 +132,11 @@ public class EmpleadosEntity {
         return result;
     }
 
-    public DepartamentosEntity getDepartamentosByDeptNo() {
+    public DepartamentosEntityP getDepartamentosByDeptNo() {
         return departamentosByDeptNo;
     }
 
-    public void setDepartamentosByDeptNo(DepartamentosEntity departamentosByDeptNo) {
+    public void setDepartamentosByDeptNo(DepartamentosEntityP departamentosByDeptNo) {
         this.departamentosByDeptNo = departamentosByDeptNo;
     }
 }

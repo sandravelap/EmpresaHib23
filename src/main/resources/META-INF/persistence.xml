@@ -6,6 +6,8 @@
     <persistence-unit name="default">
         <class>entities.DepartamentosEntity</class>
         <class>entities.EmpleadosEntity</class>
+        <class>entitiesP.DepartamentosEntityP</class>
+        <class>entitiesP.EmpleadosEntityP</class>
 
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost:6606/miBD"/>
@@ -14,16 +16,6 @@
             <property name="hibernate.connection.password" value="admin"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
-        </properties>
-    </persistence-unit>
-    <persistence-unit name="persistenceUnitPrueba">
-        <class>entitiesP.DepartamentosEntity</class>
-        <class>entitiesP.EmpleadosEntity</class>
-        <properties>
-            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:6606/miBD"/>
-            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="hibernate.connection.username" value="root"/>
-            <property name="hibernate.connection.password" value="admin"/>
         </properties>
     </persistence-unit>
 </persistence>
