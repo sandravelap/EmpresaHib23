@@ -35,6 +35,8 @@ public class ConsultarEmpleados {
         EntityTransaction transaction = em.getTransaction();
         transaction.begin();
         EmpleadosEntity e = new EmpleadosEntity("sandra", "profe", 3000.00);
+        e.setEmpNo((short)5);
+        em.persist(e);
         transaction.commit();
     }
 }
