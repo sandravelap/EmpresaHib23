@@ -27,11 +27,14 @@ public class ConsultarEmpleados {
         System.out.println("Salario anterior: "+ e.getSalario());
         e.setSalario(e.getSalario()+1000);
         System.out.println("Salario actual: " + e.getSalario());
-        //System.out.println("Departamento anterior: " );
-        //recuperamos un objeto Departamento con el nuevo departamento
-        //DepartamentosEntity nuevoDep = em.createQuery("from DepartamentosEntity where deptNo = 30", DepartamentosEntity.class).getSingleResult();
-        //e.setDepartamentosByDeptNo(nuevoDep);
+        System.out.println("Departamento anterior: " );
         //al hacer el commit los cambios se pasan a la base de datos
+        transaction.commit();
+    }
+    public static void insertarEmpleado(EntityManager em){
+        EntityTransaction transaction = em.getTransaction();
+        transaction.begin();
+        EmpleadosEntity e = new EmpleadosEntity("sandra", "profe", 3000.00);
         transaction.commit();
     }
 }

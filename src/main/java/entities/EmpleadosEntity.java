@@ -33,6 +33,15 @@ public class EmpleadosEntity {
     @Column(name = "dept_no", nullable = false)
     private Byte deptNo;
 
+    public EmpleadosEntity(String apellido, String oficio, Double salario) {
+        this.apellido = apellido;
+        this.oficio = oficio;
+        this.salario = salario;
+    }
+
+    public EmpleadosEntity() {
+    }
+
     public Short getEmpNo() {
         return empNo;
     }
