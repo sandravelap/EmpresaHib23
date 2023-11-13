@@ -30,7 +30,7 @@ public class EmpleadosEntityP {
     @Column(name = "comision", nullable = true, precision = 2)
     private Double comision;
     @Basic
-    @Column(name = "dept_no", nullable = false)
+    @Column(name = "dept_no", nullable = false, insertable = false, updatable = false)
     private Byte deptNo;
     @ManyToOne
     @JoinColumn(name = "dept_no", referencedColumnName = "dept_no", nullable = false)

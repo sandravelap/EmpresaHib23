@@ -2,9 +2,11 @@ package database;
 
 import entities.DepartamentosEntity;
 import entities.EmpleadosEntity;
+import entitiesP.EmpleadosEntityP;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +29,19 @@ public class ConsultarEmpleados {
         System.out.println("Salario anterior: "+ e.getSalario());
         e.setSalario(e.getSalario()+1000);
         System.out.println("Salario actual: " + e.getSalario());
-        //System.out.println("Departamento anterior: " );
-        //recuperamos un objeto Departamento con el nuevo departamento
-        //DepartamentosEntity nuevoDep = em.createQuery("from DepartamentosEntity where deptNo = 30", DepartamentosEntity.class).getSingleResult();
-        //e.setDepartamentosByDeptNo(nuevoDep);
         //al hacer el commit los cambios se pasan a la base de datos
+        transaction.commit();
+    }
+    public static void crearEmpleado(EntityManager em){
+        EntityTransaction transaction = em.getTransaction();
+        //comenzamos a crear el contexto de persistencia
+        transaction.begin();
+        EmpleadosEntity e = new EmpleadosEntity();
+        e.setApellido("VELAS");
+        e.setOficio("PROFE");
+        e.setDeptNo((byte) 10);
+        e.setEmpNo((short) 5);
+        em.persist(e);
         transaction.commit();
     }
 }

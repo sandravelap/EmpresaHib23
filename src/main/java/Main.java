@@ -3,7 +3,10 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
 
-import static database.ConsultarEmpleados.*;
+import static database.ConsultarDepartamentos.leerDepartamentos;
+import static database.ConsultarDepartamentosP.leerDepartamentosP;
+import static database.ConsultarEmpleados.crearEmpleado;
+import static database.ConsultarEmpleadosP.*;
 import static database.ConsultarEmpleadosClase.leerEmps;
 
 public class Main {
@@ -12,8 +15,11 @@ public class Main {
     public static EntityManager em = emf.createEntityManager();
 
     public static void main(String[] args) {
-        leerEmps(em);
-        modificarEmpleado(em);
+        //leerEmps(em);
+        //leerDepartamentos(em);
+        leerDepartamentosP(em);
+        //modificarEmpleado(em);
+        crearEmpleado(em);
         desconectar();
     }
 
