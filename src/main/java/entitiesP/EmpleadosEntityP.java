@@ -5,12 +5,12 @@ import jakarta.persistence.*;
 import java.sql.Date;
 
 @Entity
-@Table(name = "empleados", schema = "miBD", catalog = "")
+@Table(name = "empleados", schema = "miBD")
 public class EmpleadosEntityP {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "emp_no", nullable = false)
-    private Short empNo;
+    private Integer empNo;
     @Basic
     @Column(name = "apellido", nullable = true, length = 10)
     private String apellido;
@@ -36,11 +36,11 @@ public class EmpleadosEntityP {
     @JoinColumn(name = "dept_no", referencedColumnName = "dept_no", nullable = false)
     private DepartamentosEntityP departamentosByDeptNo;
 
-    public Short getEmpNo() {
+    public Integer getEmpNo() {
         return empNo;
     }
 
-    public void setEmpNo(Short empNo) {
+    public void setEmpNo(Integer empNo) {
         this.empNo = empNo;
     }
 

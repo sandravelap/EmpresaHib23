@@ -19,6 +19,7 @@ public class Main {
         //leerDepartamentos(em);
         leerDepartamentosP(em);
         //modificarEmpleado(em);
+        crearEmpleadoP(em);
         crearEmpleado(em);
         desconectar();
     }

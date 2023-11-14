@@ -38,4 +38,18 @@ public class ConsultarEmpleadosP {
         //al hacer el commit los cambios se pasan a la base de datos
         transaction.commit();
     }
+    public static void crearEmpleadoP(EntityManager em){
+        EntityTransaction transaction = em.getTransaction();
+        //comenzamos a crear el contexto de persistencia
+        transaction.begin();
+        EmpleadosEntityP e = new EmpleadosEntityP();
+        e.setApellido("VELAS");
+        e.setOficio("PROFE");
+        Query queryDep = em.createQuery("from DepartamentosEntityP where dnombre = 'VENTAS'");
+        DepartamentosEntityP nuevoDep = (DepartamentosEntityP) queryDep.getSingleResult();
+        e.setDepartamentosByDeptNo(nuevoDep);
+        //e.setEmpNo((short)7000);
+        em.persist(e);
+        transaction.commit();
+    }
 }

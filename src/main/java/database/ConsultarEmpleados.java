@@ -40,7 +40,7 @@ public class ConsultarEmpleados {
         e.setApellido("VELAS");
         e.setOficio("PROFE");
         e.setDeptNo((byte) 10);
-        e.setEmpNo((short) 5);
+        //e.setEmpNo((short) 5);
         em.persist(e);
         transaction.commit();
     }
